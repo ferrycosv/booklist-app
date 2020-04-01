@@ -11,6 +11,10 @@ var handler = {
     UI.addBookToList(book);
     // Clear fields
     UI.clearFields();
+  },
+  deleteBook: function(event) {
+    // Remove book from UI
+    UI.deleteBook(event.target);
   }
 };
 // Event: Display Books
@@ -18,4 +22,8 @@ window.onload = UI.displayBooks();
 // Event: Add a Book
 document.querySelector("#book-form").addEventListener("submit", e => {
   handler.addBook(e);
+});
+// Event: Remove a Book
+document.querySelector("#book-list").addEventListener("click", e => {
+  handler.deleteBook(e);
 });
