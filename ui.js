@@ -1,20 +1,7 @@
 // UI Class: Handle UI Tasks
 class UI {
   static displayBooks() {
-    const storedBooks = [
-      {
-        title: "Megaman X",
-        author: "Capcom",
-        isbn: "JAPAN1"
-      },
-      {
-        title: "Breath of Fire III",
-        author: "Capcom",
-        isbn: "JAPAN1"
-      }
-    ];
-    const books = storedBooks;
-
+    const books = Store.getBooks();
     books.forEach(book => UI.addBookToList(book));
   }
 

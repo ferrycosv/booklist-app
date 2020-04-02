@@ -15,18 +15,32 @@ var handler = {
       // Add Book to UI
       UI.addBookToList(book);
 
+      // Add book to store
+      Store.addBook(book);
+
       // Show success message
       UI.showAlert("Book Added", "success");
 
       // Clear fields
       UI.clearFields();
+      // log the user input
+      log.push({
+        handler: "addBook",
+        book: JSON.parse(JSON.stringify(book))
+      });
     }
   },
   deleteBook: function(event) {
     // Remove book from UI
     UI.deleteBook(event.target);
+    // Remove book from store
+    Store.removeBook(event.target.parentElement.previousElementSibling.textContent);
     // Show success message
     UI.showAlert("Book Removed", "success");
+    // log the user input
+    log.push({
+      handler: "deleteBook"
+    });
   }
 };
 // Event: Display Books
